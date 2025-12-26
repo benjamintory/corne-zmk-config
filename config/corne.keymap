@@ -32,15 +32,15 @@
                         display-name = "Nubmers & Arrows";
                         // -----------------------------------------------------------------------------------------
                         // | ESC  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-                        // | TAB  |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
-                        // | ALT  | UNLK|     |     |     |     |   |     |     |     |     |     | RET  |
+                        // | TAB  | PIP |VOL D|VOL U| ▶/⏸ |  ⏩ |   | LFT | DWN |  UP | RGT |     |      |
+                        // | ALT  | UNLK|  🔅 | 🔆  | 🔇  |  ⏪ |   |     |     |     |     |     | RET  |
                         //                | CTRL | SHIFT  |     |   |     | SPACE | GUI |
 
                         bindings = <
-                                &kp ESC    &kp N1         &kp N2   &kp N3       &kp N4       &kp N5         &kp N6    &kp N7     &kp N8 &kp N9     &kp N0 &kp BSPC
-                                &kp TAB    &trans         &trans   &trans       &trans       &trans         &kp LEFT  &kp DOWN   &kp UP &kp RIGHT  &trans &trans
-                                &kp LALT   &studio_unlock &trans   &trans       &trans       &trans         &trans    &trans     &trans &trans     &trans &kp RET
-                                                                   &kp LCTRL    &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
+                                &kp ESC    &kp N1         &kp N2         &kp N3       &kp N4       &kp N5         &kp N6    &kp N7     &kp N8 &kp N9     &kp N0 &kp BSPC
+                                &kp TAB    &C_PIP         &K_VOLUME_DOWN &K_VOLUME_UP &C_PP        &C_NEXT        &kp LEFT  &kp DOWN   &kp UP &kp RIGHT  &trans &trans
+                                &kp LALT   &studio_unlock &C_BRI_DEC     &C_BRI_IN    &C_MUTE      &C_PREV        &trans    &trans     &trans &trans     &trans &kp RET
+                                                                         &kp LCTRL    &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
                         >;
                 };
 
@@ -74,6 +74,14 @@
                                 &trans    &trans    &trans     &trans    &trans      &trans   &trans   &trans   &trans    &trans   &trans    &trans
                                                     &trans     &trans    &trans      &trans   &trans   &trans
                         >;
+                };
+        };
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+
+                fn_when_mo1_mo2 {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
                 };
         };
 };
