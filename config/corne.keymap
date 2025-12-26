@@ -37,10 +37,10 @@
                         //                | CTRL | SHIFT  |     |   |     | SPACE | GUI |
 
                         bindings = <
-                                &kp ESC    &kp N1         &kp N2         &kp N3       &kp N4       &kp N5         &kp N6    &kp N7     &kp N8 &kp N9     &kp N0 &kp BSPC
-                                &kp TAB    &C_PIP         &C_VOL_DN      &C_VOL_UP    &C_PP        &C_NEXT        &kp LEFT  &kp DOWN   &kp UP &kp RIGHT  &trans &trans
-                                &kp LALT   &studio_unlock &C_BRI_DEC     &C_BRI_IN    &C_MUTE      &C_PREV        &trans    &trans     &trans &trans     &trans &kp RET
-                                                                         &kp LCTRL    &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
+                                &kp ESC    &kp N1         &kp N2         &kp N3        &kp N4       &kp N5         &kp N6    &kp N7     &kp N8 &kp N9     &kp N0 &kp BSPC
+                                &kp TAB    &kp C_PIP      &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP     &kp C_NEXT     &kp LEFT  &kp DOWN   &kp UP &kp RIGHT  &trans &trans
+                                &kp LALT   &studio_unlock &kp C_BRI_DEC  &kp C_BRI_INC &kp C_MUTE   &kp C_PREV     &trans    &trans     &trans &trans     &trans &kp RET
+                                                                         &kp LCTRL     &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
                         >;
                 };
 
