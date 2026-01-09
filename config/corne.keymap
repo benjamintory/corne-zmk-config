@@ -7,6 +7,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/backlight.h>
 
 / {
         keymap {
@@ -33,13 +35,13 @@
                         // -----------------------------------------------------------------------------------------
                         // | ESC  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
                         // | TAB  | PIP |VOL D|VOL U| ▶/⏸ |  ⏩ |   | LFT | DWN |  UP | RGT |PgDn | DEL  |
-                        // | ALT  | UNLK|  🔅 | 🔆  | 🔇  |  ⏪ |   |HOME | INS |PrtSc|ScrLk|PgUp | RET  |
+                        // | ALT  | UNLK|  🔅 | 🔆  | 🔇  |  ⏪ |   |HOME | END | INS |PrtSc|PgUp | RET  |
                         //                | CTRL | SHIFT  |     |   |     | SPACE | GUI |
 
                         bindings = <
                                 &kp ESC    &kp N1         &kp N2         &kp N3        &kp N4       &kp N5         &kp N6    &kp N7     &kp N8    &kp N9     &kp N0    &kp BSPC
                                 &kp TAB    &trans         &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP     &kp C_NEXT     &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT  &kp PG_UP &kp DEL
-                                &kp LALT   &studio_unlock &kp C_BRI_DN   &kp C_BRI_UP  &kp C_MUTE   &kp C_PREV     &kp HOME  &kp INS    &kp PSCRN &kp SLCK   &kp PG_DN &kp RET
+                                &kp LALT   &studio_unlock &kp C_BRI_DN   &kp C_BRI_UP  &kp C_MUTE   &kp C_PREV     &kp HOME  &kp END    &kp INS   &kp PSCRN  &kp PG_DN &kp RET
                                                                          &kp LCTRL     &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
                         >;
                 };
@@ -88,7 +90,7 @@
                 alttab: alt_tab {
                         compatible = "zmk,behavior-mod-morph";
                         #binding-cells = <0>;
-                        bindings = <&kp TAB>, <&kp LALT(TAB)>;
+                        bindings = <&kp TAB>, <&kp LA(TAB)>;
                         mods = <(MOD_LGUI)>;
                         keep-mods = <(MOD_LGUI)>;
                 };
