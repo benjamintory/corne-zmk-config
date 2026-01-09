@@ -84,7 +84,6 @@
                         then-layer = <3>;
                 };
         };
-        {
         behaviors {
                 alttab: alt_tab {
                         compatible = "zmk,behavior-mod-morph";
