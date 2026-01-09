@@ -22,7 +22,7 @@
 
                         bindings = <
                                 &kp ESC   &kp SQT  &kp COMMA &kp DOT   &kp P     &kp Y  &kp F  &kp G     &kp C    &kp R &kp L &kp BSPC
-                                &kp TAB   &kp A    &kp O     &kp E     &kp U     &kp I  &kp D  &kp H     &kp T    &kp N &kp S &kp MINUS
+                                &alttab   &kp A    &kp O     &kp E     &kp U     &kp I  &kp D  &kp H     &kp T    &kp N &kp S &kp MINUS
                                 &kp LALT  &kp SEMI &kp Q     &kp J     &kp K     &kp X  &kp B  &kp M     &kp W    &kp V &kp Z &kp RET
                                                              &kp LCTRL &kp LSHFT &mo 1  &mo 2  &kp SPACE &kp LGUI
                         >;
@@ -37,9 +37,9 @@
                         //                | CTRL | SHIFT  |     |   |     | SPACE | GUI |
 
                         bindings = <
-                                &kp ESC    &kp N1         &kp N2         &kp N3        &kp N4       &kp N5         &kp N6    &kp N7     &kp N8  &kp N9     &kp N0 &kp BSPC
-                                &kp TAB    &trans         &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP     &kp C_NEXT     &kp LEFT  &kp DOWN   &kp UP  &kp RIGHT  &trans &kp DEL
-                                &kp LALT   &studio_unlock &kp C_BRI_DN   &kp C_BRI_UP  &kp C_MUTE   &kp C_PREV     &trans    &trans     &trans  &trans     &trans &kp RET
+                                &kp ESC    &kp N1         &kp N2         &kp N3        &kp N4       &kp N5         &kp N6    &kp N7     &kp N8    &kp N9     &kp N0    &kp BSPC
+                                &kp TAB    &trans         &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP     &kp C_NEXT     &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT  &kp PG_UP &kp DEL
+                                &kp LALT   &studio_unlock &kp C_BRI_DN   &kp C_BRI_UP  &kp C_MUTE   &kp C_PREV     &kp HOME  &kp INS    &kp PSCRN &kp SLCK   &kp PG_DN &kp RET
                                                                          &kp LCTRL     &kp LSHFT    &trans         &trans    &kp SPACE  &kp LGUI
                         >;
                 };
@@ -49,13 +49,13 @@
                         // -----------------------------------------------------------------------------------------
                         // | ESC  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
                         // | TAB  |     |  (  |  )  |  ?  |  /  |   |  \  |  =  |  [  |  ]  |  `  |      |
-                        // | ALT  |     |     |     |     |     |   |  |  |  +  |  {  |  }  |  ~  |  RET |
+                        // | ALT  |     |     |     |     |     |   |  |  |     |  {  |  }  |  ~  |  RET |
                         //                | CTRL | SHIFT  |     |   |     | SPACE | GUI |
 
                         bindings = <
                                 &kp ESC   &kp EXCL  &kp AT     &kp HASH   &kp DLLR      &kp PRCNT   &kp CARET &kp AMPS    &kp ASTRK &kp LPAR &kp RPAR  &kp BSPC
                                 &kp TAB   &trans    &kp LPAR   &kp RPAR   &kp QMARK     &kp FSLH    &kp BSLH  &kp EQUAL   &kp LBKT  &kp RBKT &kp GRAVE &trans
-                                &kp LALT  &trans    &trans     &trans     &trans        &trans      &kp PIPE  &kp PLUS    &kp LBRC  &kp RBRC &kp TILDE &kp RET
+                                &kp LALT  &trans    &trans     &trans     &trans        &trans      &kp PIPE  &trans      &kp LBRC  &kp RBRC &kp TILDE &kp RET
                                                                &kp LCTRL  &kp LSHFT     &trans      &trans    &kp SPACE   &kp LGUI
                         >;
                 };
@@ -63,10 +63,10 @@
                 function_keys {
                         display-name = "Function";
                         // -----------------------------------------------------------------------------------------
-                        // | F1   |  F2 |  F3 |  F4 |  F5 |  F6 |   |  F7 |  F8 |  F9 | F10 | F11 |  F12 |
-                        // |      |     |     |     |     |     |   |     |     |     |     |     |      |
-                        // |      |     |     |     |     |     |   |     |     |     |     |     |      |
-                        //              |     |     |     |     |   |     |     |
+                        // | F1   |  F2    |  F3    |  F4    |  F5    |  F6    |   |  F7 |  F8 |  F9 | F10 | F11 |  F12 |
+                        // |BT_CLR|BT_SEL 0|BT_SEL 1|BT_SEL 2|BT_SEL 3|BT_SEL 4|   |     |     |     |     |     |      |
+                        // |      |        |        |        |        |        |   |     |     |     |     |     |      |
+                        //                 |        |        |        |        |   |     |     |
 
                         bindings = <
                                 &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7   &kp F8   &kp F9    &kp F10  &kp F11   &kp F12
@@ -82,6 +82,16 @@
                 fn_when_mo1_mo2 {
                         if-layers = <1 2>;
                         then-layer = <3>;
+                };
+        };
+        {
+        behaviors {
+                alttab: alt_tab {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0>;
+                        bindings = <&kp TAB>, <&kp LALT(TAB)>;
+                        mods = <(MOD_LGUI)>;
+                        keep-mods = <(MOD_LGUI)>;
                 };
         };
 };
